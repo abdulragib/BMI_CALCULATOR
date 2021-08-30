@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const bottomContainerHeight = 80.0;
+const activeCardColor = Color(0xFF1D1E33);
+const bottomContainerColor = Color(0xFFEB1555);
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -18,13 +22,11 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(
-                    color: Color(0xFF1D1E33),
-                  ),
+                  child: ReusableCard(color: activeCardColor),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    color: Color(0xFF1D1E33),
+                    color: activeCardColor,
                   ),
                 ),
               ],
@@ -32,7 +34,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              color: Color(0xFF1D1E33),
+              color: activeCardColor,
             ),
           ),
           Expanded(
@@ -40,16 +42,22 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    color: Color(0xFF1D1E33),
+                    color: activeCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    color: Color(0xFF1D1E33),
+                    color: activeCardColor,
                   ),
                 ),
               ],
             ),
+          ),
+          Container(
+            color: bottomContainerColor,
+            margin: EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: bottomContainerHeight,
           ),
         ],
       ),
@@ -58,7 +66,7 @@ class _InputPageState extends State<InputPage> {
 }
 
 class ReusableCard extends StatelessWidget {
-  ReusableCard({@required this.color});
+  ReusableCard({this.color});
   final Color color;
 
   @override
@@ -74,3 +82,5 @@ class ReusableCard extends StatelessWidget {
     );
   }
 }
+
+//both final and constant is immutable or unchangable.
